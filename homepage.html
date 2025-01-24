@@ -5,45 +5,180 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="project.css">
-    <title>Yaadein Login Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Yaadein/Logo & img/logo.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Kenia&family=Poppins:ital,wght@0,200;0,300;1,500&display=swap"
+        rel="stylesheet">
+    <title>Yaadein Home_Page</title>
 </head>
 
+<script src="https://kit.fontawesome.com/f823baf0d6.js" crossorigin="anonymous"></script>
+
+<style>
+    body {
+        color: white;
+        font-family: Verdana;
+    }
+
+    nav ul li a.active {
+        color: black;
+    }
+
+    .right ul li a.active {
+        border: 2px solid black;
+    }
+
+    body::-webkit-scrollbar {
+        background-color: transparent;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: linear-gradient(rgb(2, 57, 78), rgb(6, 141, 175), rgb(2, 34, 44));
+        border-radius: 20px;
+    }
+
+
+    /* Media query for screen sizes between 320px and 480px (typical phones) */
+    @media screen and (max-width: 768px) {
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-repeat: no-repeat;
+            height: max-content;
+            width: max-content;
+
+            /* width: 100% !important; */
+            /* border: 2px solid black; */
+        }
+
+        .Hbckimg {
+            background-repeat: no-repeat;
+            height: max-content;
+            width: auto;
+            background-size: cover;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20%;
+            left: 75%;
+        }
+
+        /* Example: Adjust font size for headings */
+        .content h1 {
+            font-size: 34px;
+            text-align: center;
+        }
+
+        /* Example: Add more padding to content */
+        .content p {
+            text-align: center;
+            font-size: 10px;
+            /* padding: 20px; */
+        }
+
+        /* Example: Change button styles */
+        .content .start {
+            width: 90px;
+            padding: 5px;
+            font-size: 10px;
+            margin-top: 85px;
+        }
+
+        .content span {
+            font-size: 20px;
+        }
+
+        nav {
+            height: 80px;
+            width: auto;
+
+        }
+
+        nav ul li {
+            /* display: block; */
+            text-align: center;
+        }
+
+        #checkbtn {
+            display: block;
+            /* margin-left: 10px; */
+            position: absolute;
+            left: 85%;
+        }
+
+        .left i {
+            position: absolute;
+            top: 5%;
+            left: 2%;
+            /* margin-top: 50px; */
+        }
+
+        #heart {
+            margin-left: 130px;
+        }
+
+        .right ul li a {
+            border: none;
+        }
+
+        .right ul li a.active {
+            border: none;
+        }
+
+    }
+</style>
+
 <body>
-    <div id="login">
-        <h1>Login to Yaadein</h1>
-        <form id="loginForm">
-            <div class="loginuser">
-                <input type="email" id="username" placeholder="Enter your Email" required>
-            </div>
-            <div class="loginuser">
-                <input type="password" id="password" placeholder="Enter your Password" required>
-            </div>
-            <button type="submit" class="btn">Login</button>
-        </form>
+    <div class="Hbckimg">
 
-        <div>
-            <a href="signup.html">Don't have an account? Sign Up</a>
-        </div>
+        <header>
+            <nav>
+                <img src="./Logo & img/Logo (2).png" alt="" class="logo">
+
+                <div class="left">
+                    <i>YAADEIN</i>
+                    <i class="fa-solid fa-heart fa-bounce" id="heart"></i>
+                </div>
+
+                <div class="right">
+                    <ul>
+                        <li><a class="active" href="homepage.html"><i class="fa-solid fa-house fa-flip"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-address-card fa-flip"></i>About</a></li>
+                        <li><a href="contact_us.html"><i class="fa-solid fa-phone-volume fa-flip"></i>Contact Us</a></li>
+                        <li><a href="reviews.html"><i class="fa-solid fa-magnifying-glass fa-flip"></i>Reviews</a></li>
+                        <li><a href="login.html"><i class="fa-solid fa-user fa-flip"></i>Login</a></li>
+                        <li><a href="signup.html"><i class="fa-solid fa-user-plus fa-flip"></i></i>Sign Up</a></li>
+                    </ul>
+                </div>
+
+            </nav>
+        </header>
+
+        <main>
+            <section>
+                <div class="content">
+                    <h1>Welcome to YAADEIN &#9997</h1>
+                    <p>Cultivate a positive outlook and improve your well being <br>through the power of gratidute.</p>
+                    <a href="signup.html" class="start">
+                        <i class="fa-solid fa-face-grin-stars fa-beat-fade"id="emojistart"></i>
+                        Get Started
+                    </a>
+                    <span>&#128070;</span> <!--emojies -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Gratitude Journey. All rights reserved.</p>
+            <p>&#128512;</p>
+        </footer>
+
     </div>
-
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent form submission
-
-            const email = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            // Retrieve saved data from localStorage
-            const storedUser = JSON.parse(localStorage.getItem("user"));
-
-            if (storedUser && storedUser.email === email && storedUser.password === password) {
-                alert("Login successful!");
-                window.location.href = "userEntry.html"; // Redirect after login
-            } else {
-                alert("Invalid email or password.");
-            }
-        });
-    </script>
 </body>
 
 </html>
