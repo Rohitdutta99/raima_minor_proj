@@ -3,35 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View_Entries</title>
+    <title>View Entries</title>
     <link rel="stylesheet" href="project.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/Logo & img/logo.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/Logo & img/logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/Logo & img/logo.png">
 </head>
-<style>
-body
-{
-    /* background-color: rgb(107, 4, 81); */
-    background: url('./Logo & img/SignUp.jpg');
-    background-size: cover;
-    font-family: 'Black Ops One', cursive;
-
-}
-</style>
 <body>
+    <header>
+        <h1>Your Entries</h1>
+        <hr>
+    </header>
+    <main>
         <section class="entries">
-        <h2>Your Entries</h2>
-            <ul>
-                <li class="entry">
-                    <span class="entry-date">2023-08-06</span>
-                    <p class="entry-text">I'm happy for the beautiful weather today.</p>
-                </li>
-                <li class="entry">
-                    <span class="entry-date">2021-03-16</span>
-                    <p class="entry-text">I'm angry on my xyz friend .. reason is that..........</p>
-                </li>
+            <h2>Your Entries</h2>
+            <ul id="entriesList">
+                <!-- Entries will be dynamically inserted here -->
             </ul>
         </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Yaadein</p>
+    </footer>
+
+    <script>
+        // Load saved entries from localStorage
+        window.onload = function() {
+            const entriesList = document.getElementById("entriesList");
+
+            // Get entries from localStorage, or initialize to empty array
+            let entries = JSON.parse(localStorage.getItem("entries")) || [];
+
+            // Check if there are entries
+            if (entries.length === 0) {
+                const noEntriesMessage = document.createElement("p");
+                noEntriesMessage.textContent = "No entries found.";
+                entriesList.appendChild(noEntriesMessage);
+            } else {
+                // Create and append list items for each entry
+                entries.forEach(entry => {
+                    const li = document.createElement("li");
+                    li.classList.add("entry");
+
+                    const spanDate = document.createElement("span");
+                    spanDate.classList.add("entry-date");
+                    spanDate.textContent = entry.date;
+
+                    const pText = document.createElement("p");
+                    pText.classList.add("entry-text");
+                    pText.textContent = entry.text;
+
+                    li.appendChild(spanDate);
+                    li.appendChild(pText);
+
+                    entriesList.appendChild(li);
+                });
+            }
+        };
+    </script>
 </body>
 </html>
