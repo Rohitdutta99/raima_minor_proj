@@ -1,9 +1,10 @@
 /* home page css----------------------------------------------------------------------------------------------------------- */
 
-*
+body
 {
-    margin: 0px;
-    padding: 0px;
+    margin: 0 auto;
+    padding: 0 auto;
+    /* background: image("./Yaadein/Logo & img/User_entry.jpg"); */
 }
 .Hbckimg
 {

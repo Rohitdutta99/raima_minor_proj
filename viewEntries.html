@@ -5,17 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Entries</title>
     <link rel="stylesheet" href="project.css">
+    <style>
+        body {
+            background-image: url('/Yaadein/Logo & img/User_entry.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Black Ops One', cursive;
+            color: black; /* Ensure text is visible over the background */
+        }
+
+        header, footer {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Add a semi-transparent background for header and footer */
+            color: black;
+            padding: 10px;
+        }
+
+        .entries {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for the entries section */
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .entries h2 {
+            text-align: center;
+        }
+
+        .entry {
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .entry-date {
+            font-weight: bold;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Your Entries</h1>
+        <h1 style="color: white;">YAADEIN</h1>
         <hr>
     </header>
     <main>
         <section class="entries">
             <h2>Your Entries</h2>
-            <ul id="entriesList">
-                <!-- Entries will be dynamically inserted here -->
+            <ul id="entryList">
+                <!-- Entries will be populated dynamically here -->
             </ul>
         </section>
     </main>
@@ -24,39 +67,22 @@
     </footer>
 
     <script>
-        // Load saved entries from localStorage
-        window.onload = function() {
-            const entriesList = document.getElementById("entriesList");
+        // Get saved entries from localStorage
+        const entries = JSON.parse(localStorage.getItem("entries")) || [];
 
-            // Get entries from localStorage, or initialize to empty array
-            let entries = JSON.parse(localStorage.getItem("entries")) || [];
-
-            // Check if there are entries
-            if (entries.length === 0) {
-                const noEntriesMessage = document.createElement("p");
-                noEntriesMessage.textContent = "No entries found.";
-                entriesList.appendChild(noEntriesMessage);
-            } else {
-                // Create and append list items for each entry
-                entries.forEach(entry => {
-                    const li = document.createElement("li");
-                    li.classList.add("entry");
-
-                    const spanDate = document.createElement("span");
-                    spanDate.classList.add("entry-date");
-                    spanDate.textContent = entry.date;
-
-                    const pText = document.createElement("p");
-                    pText.classList.add("entry-text");
-                    pText.textContent = entry.text;
-
-                    li.appendChild(spanDate);
-                    li.appendChild(pText);
-
-                    entriesList.appendChild(li);
-                });
-            }
-        };
+        // Display the entries on the page
+        const entryList = document.getElementById("entryList");
+        
+        if (entries.length === 0) {
+            entryList.innerHTML = "<p>No entries found.</p>";
+        } else {
+            entries.forEach(entry => {
+                const li = document.createElement("li");
+                li.classList.add("entry");
+                li.innerHTML = `<span class="entry-date">${entry.date}</span><p class="entry-text">${entry.text}</p>`;
+                entryList.appendChild(li);
+            });
+        }
     </script>
 </body>
 </html>
