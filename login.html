@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yaadein Login Page</title>
+  <link rel="stylesheet" href="project.css">
+  
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+  
+  <!-- Firebase Configuration -->
+  <script src="firebaseConfig.js">
+  </script>
+</head>
+
+<body>
+  <div id="login">
+    <h1>Login to Yaadein</h1>
+    <form onsubmit="loginUser(event)">
+      <div class="loginuser">
+        <input type="email" id="username" placeholder="Enter your Email" required>
+      </div>
+      <div class="loginuser">
+        <input type="password" id="password" placeholder="Enter your Password" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <div>
+      <a href="signup.html">Don't have an account? Sign Up</a>
+    </div>
+  </div>
+
+  <script>
+    async function loginUser(event) {
+      event.preventDefault(); // Prevent form submission
+      const email = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        await auth.signInWithEmailAndPassword(email, password);
+        alert('Login successful!');
+        window.location.href = "userEntry.html"; // Redirect after login
+      } catch (error) {
+        alert(error.message); // Show error message
+      }
+    }
+  </script>
+</body>
+
+</html>

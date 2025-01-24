@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Yaadein/Logo & img/logo.png">
+    <title>Contact_Us YAADEIN</title>
+</head>
+<script src="https://kit.fontawesome.com/f823baf0d6.js" crossorigin="anonymous"></script>
+
+<style>
+    body {
+        background-color: #55BBF9;
+        /* color: white; */
+        font-family: Verdana;
+    }
+    nav ul li a.active {
+        color: black;
+    }
+    .right ul li a.active {
+        border: 2px solid black;
+    }
+    body::-webkit-scrollbar {
+        background-color: transparent;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: linear-gradient(rgb(2, 57, 78), rgb(6, 141, 175), rgb(2, 34, 44));
+        border-radius: 20px;
+    }
+
+
+</style>
+<body>
+    <header>
+        <nav>
+            <img src="./Logo & img/Logo (2).png" alt="" class="logo">
+
+            <div class="left">
+                <i>YAADEIN</i>
+                <i class="fa-solid fa-heart fa-bounce" id="heart"></i>
+            </div>
+
+            <div class="right">
+                <ul>
+                    <li><a href="homepage.html"><i class="fa-solid fa-house fa-flip"></i>Home</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-address-card fa-flip"></i>About</a></li>
+                    <li><a class="active" href="contact_us.html"><i class="fa-solid fa-phone-volume fa-flip"></i>Contact Us</a></li>
+                    <li><a href="reviews.html"><i class="fa-solid fa-magnifying-glass fa-flip"></i>Reviews</a></li>
+                    <li><a href="login.html"><i class="fa-solid fa-user fa-flip"></i>Login</a></li>
+                    <li><a href="signup.html"><i class="fa-solid fa-user-plus fa-flip"></i></i>Sign Up</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id="contact">
+        <h1><i class="fa-solid fa-phone-volume fa-flip"></i>Contact Us</h1>
+        <pre id="intro">
+            Heyo!! We are located in Kolkata. 
+            Fell free to use the contact from the right to reach out to us, or write us the old fashion way.
+        </pre>
+
+        <div class="c_left">
+            <pre>
+                <strong>SEND MAIL:</strong>
+                   xyz@gmail.com
+            
+            <hr class="c_hr">
+
+                  <strong>CALL SUPPORT:</strong>
+                               Hours: 9am - 5pm, Monday - Friday
+              000000###
+
+              <hr class="c_hr">
+            </pre>
+        </div>
+
+        <div class="c_right">
+            <form action="#">
+                <input type="text" id="name" placeholder="NAME" >
+                <input type="email" id="email" placeholder="EMAIL">
+                <input type="number" id="phone" placeholder="PHONE NUMBER">
+                <textarea name="" id="" cols="50" rows="10" placeholder="MESSAGE"></textarea>
+                <!-- <input type="text" id="message" placeholder="MESSAGE"> -->
+            </form>
+
+            <button>Send</button>
+
+        </div>
+    </div>
+    
+</body>
+</html>

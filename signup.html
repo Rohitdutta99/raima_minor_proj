@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yaadein Signup Page</title>
+  <link rel="stylesheet" href="project.css">
+  
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
+  
+  <!-- Firebase Configuration -->
+  <script src="firebaseConfig.js">
+  </script>
+</head>
+
+<body>
+  <div id="signup">
+    <h1>Sign Up for Yaadein</h1>
+    <form onsubmit="signupUser(event)">
+      <div class="signuser">
+        <input type="email" id="emailid" placeholder="Enter your Email" required>
+      </div>
+      <div class="signuser">
+        <input type="password" id="pass" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btns">Sign Up</button>
+    </form>
+    <div>
+      <a href="login.html">Already have an account? Log In</a>
+    </div>
+  </div>
+
+  <script>
+    async function signupUser(event) {
+      event.preventDefault(); // Prevent form submission
+      const email = document.getElementById('emailid').value;
+      const password = document.getElementById('pass').value;
+
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters long.');
+        return;
+      }
+
+      try {
+        await auth.createUserWithEmailAndPassword(email, password);
+        alert('Signup successful!');
+        window.location.href = "login.html"; // Redirect to login page
+      } catch (error) {
+        alert(error.message); // Show error message
+      }
+    }
+  </script>
+</body>
+
+</html>

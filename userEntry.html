@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="project.css">
+    <title>Yaadein User_Entry Page</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/Yaadein/Logo & img/logo.png">
+</head>
+<style>
+body 
+{
+    background: url('./Logo & img/User_entry.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Black Ops One', cursive;
+}
+body::-webkit-scrollbar
+{
+    background-color: transparent;
+}
+body::-webkit-scrollbar-thumb
+{
+    background: linear-gradient(rgb(2, 57, 78),rgb(6, 141, 175),rgb(2, 34, 44));
+    border-radius: 20px;
+}
+@media screen and (max-width: 768px)
+{
+    body
+    {
+      margin: 0px;
+      padding: 0px;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      height: auto;
+      width: 300px;
+    }
+    header h1
+    {
+        /* text-align: center; */
+        margin-left: 35%;
+        /* font-size: large; */
+    }
+    header hr
+    {
+        width: 59%;
+    }
+    .entry-form h2
+    {
+        text-align: center;
+    }
+    .entry-form label
+    {
+        /* text-align: center; */
+        margin-top: 20%;
+        margin-left: 8%;
+        font-size: 2vh;
+    }
+    .entry-form input
+    {
+        /* text-align: center; */
+        /* position: absolute; */
+        margin-left: 60%;
+        margin-top: 1%;
+        padding: 5% 10% 2% 50%;
+    }
+    .entry-form textarea
+    {
+        /* margin-top: ; */
+        margin-left: 8%;
+    }
+    footer
+    {
+        margin-top: 117%;
+        width: 130%;
+        height: max-content;
+    }
+}   
+</style>
+
+<body>
+    <header>
+        <h1>YAADEIN</h1>
+        <hr>
+    </header>
+    <main>
+        <section class="entry-form">
+            <h2>Create a New Entry</h2>
+            <form>
+                <label for="entryDate">Select your entries date:</label>
+                <input type="date" id="entryDate" name="entryDate" required>
+                <label for="entryText">Mention your memories!!</label>
+                <textarea id="entryText" name="entryText" rows="4" required placeholder="Your Memories"></textarea>
+                <input type="file">
+                <button type="submit">Save Entry</button>
+            </form>
+        </section>
+
+        <div>
+            <a href="viewEnries.html"><button id="viewentries">View your entries</button></a>
+        </div>
+    </main>
+    <footer id="u_en_foo">
+        <p>&copy; 2023 Yaadein</p>
+    </footer>
+</body>
+</html>
